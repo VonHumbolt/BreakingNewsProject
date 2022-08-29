@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Id;
 import java.util.Date;
 
 @Data
@@ -13,11 +14,14 @@ import java.util.Date;
 @Builder
 public class New {
 
+    @Id
     private int id;
     private String title;
     private String subtitle;
-    private Source source;
     private String content;
     private Date publishedAt;
     private NewsImage newsImage;
+
+//    private Source source;
+
 }

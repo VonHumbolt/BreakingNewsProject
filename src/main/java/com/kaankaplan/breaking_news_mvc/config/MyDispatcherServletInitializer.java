@@ -16,6 +16,6 @@ public class MyDispatcherServletInitializer extends AbstractAnnotationConfigDisp
 
     @Override
     protected String[] getServletMappings() {
-        return new String[] {"/api/v1/news/"};
+        return new String[] {"/"};
     }
 }

@@ -18,4 +18,19 @@ public class NewServiceImpl implements NewService {
     public List<New> getAllNews() {
         return newsRepository.getAllNews();
     }
+
+    @Override
+    public New getNewsById(int newsId) {
+        return newsRepository.getNewsById(newsId);
+    }
+
+    @Override
+    public List<New> getNewsBySourceId(int sourceId) {
+        return newsRepository.getNewsBySourceId(sourceId);
+    }
+
+    @Override
+    public List<New> searchNew(String text) {
+        return newsRepository.searchNew(text);
+    }
 }

@@ -7,4 +7,10 @@ import java.util.List;
 public interface NewService {
 
     List<New> getAllNews();
+
+    New getNewsById(int newsId);
+
+    List<New> getNewsBySourceId(int sourceId);
+
+    List<New> searchNew(String text);
 }
