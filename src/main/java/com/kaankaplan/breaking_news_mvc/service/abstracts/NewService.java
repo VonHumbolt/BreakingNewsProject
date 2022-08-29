@@ -1,16 +1,17 @@
 package com.kaankaplan.breaking_news_mvc.service.abstracts;
 
-import com.kaankaplan.breaking_news_mvc.models.New;
+import com.kaankaplan.breaking_news_mvc.models.dtos.NewDto;
 
 import java.util.List;
 
 public interface NewService {
 
-    List<New> getAllNews();
+    List<NewDto> getAllNews();
 
-    New getNewsById(int newsId);
+    NewDto getNewsById(int newsId);
 
-    List<New> getNewsBySourceId(int sourceId);
+    List<NewDto> getNewsBySourceId(int sourceId);
+    List<NewDto> getNewsByAuthorId(int authorId);
 
-    List<New> searchNew(String text);
+    List<NewDto> searchNew(String text);
 }

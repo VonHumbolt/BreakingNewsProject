@@ -18,5 +18,7 @@ public class Source {
 
     @MappedCollection(idColumn = "source_id")
     private List<New> newList;
+
+    @MappedCollection(idColumn = "source_id")
     private List<Author> author;
 }
