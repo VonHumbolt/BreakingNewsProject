@@ -13,6 +13,6 @@ public class AuthorController {
 
         // service code
 
-        return "author-news";
+        return "home-page";
     }
 }

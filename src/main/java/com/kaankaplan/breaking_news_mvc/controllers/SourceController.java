@@ -13,7 +13,7 @@ public class SourceController {
 
         // service code
 
-        return "news-source-id";
+        return "home-page";
     }
 
 }
