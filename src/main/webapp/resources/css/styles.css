@@ -11302,16 +11302,15 @@ textarea.form-control-lg {
 
 header.masthead {
   position: relative;
-  background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
+  background: #777a78 no-repeat center center;
   background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 header.masthead:before {
   content: "";
   position: absolute;
-  background-color: #1c375e;
+  background-color: #777a78;
   height: 100%;
   width: 100%;
   top: 0;
@@ -11359,7 +11358,7 @@ header.masthead h1, header.masthead .h1 {
 .call-to-action {
   position: relative;
   background-color: #343a40;
-  background: url("../assets/img/bg-masthead.jpg") no-repeat center center;
+  background: no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;
@@ -11378,4 +11377,28 @@ header.masthead h1, header.masthead .h1 {
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+.text {
+  position: relative;
+  font-size: 14px;
+  color: black;
+  width: 100%; /* Could be anything you like. */
+}
+
+.text-concat {
+  position: relative;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 3.6em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.2em;
+  text-align:justify;
+}
+
+.text.ellipsis::after {
+  content: "...";
+  position: absolute;
+  right: -12px;
+  bottom: 4px;
 }

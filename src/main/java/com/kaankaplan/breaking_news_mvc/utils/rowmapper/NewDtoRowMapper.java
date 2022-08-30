@@ -17,8 +17,10 @@ public class NewDtoRowMapper implements RowMapper<NewDto> {
                 .content(rs.getString("content"))
                 .publishedDate(rs.getDate("published_at"))
                 .sourceName(rs.getString("name"))
-                .authorName(rs.getString("first_name") + rs.getString("last_name"))
+                .authorName(rs.getString("first_name") + " " + rs.getString("last_name"))
                 .imageUrl(rs.getString("image_url"))
+                .authorId(rs.getInt("author_id"))
+                .sourceId(rs.getInt("new.source_id"))
                 .build();
 
         return newDto;

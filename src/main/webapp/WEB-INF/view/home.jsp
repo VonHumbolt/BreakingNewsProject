@@ -21,28 +21,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Breaking News</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href="/api/v1/news/">Breaking News</a>
             </div>
         </nav>
-        <!-- Masthead-->
-        <header class="masthead">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <div class="text-center text-white">
-                            <!-- Page heading-->
-                            <h1 class="text-uppercase text-white mb-4" style="font-size: 70px;">Breaking News App</h1>
-                            <h1 class="mb-5">Get the whole breaking news all around the world!</h1>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Icons Grid-->
         <section class="features-icons bg-light text-center">
             <div class="container">
+                <h1 class="text-uppercase mb-4" style="font-size: 70px;">Breaking News App</h1>
                 <div class="row justify-content-center align-items-center">
                     <div class="col-sm-8 ">
 <%--                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">--%>
@@ -67,8 +52,13 @@
             <div class="container-fluid p-0">
 
                 <c:if test="${searchResultSize != null}">
-                    <h5 class="text-center my-4">${searchResultSize} News Found! </h5>
+                    <h5 class="text-center my-5">${searchResultSize} News Found <i class="bi bi-search"></i> </h5>
                 </c:if>
+
+                <c:if test="${name != null}">
+                    <h5 class="text-center my-5">${name}'s News </h5>
+                </c:if>
+
 
                 <c:set var="number" value="1"/>
                 <c:forEach items="${allNews}" var="item">
@@ -79,8 +69,10 @@
                                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                                     <h2>${item.title}</h2>
                                     <h4>${item.subtitle}</h4>
-                                    <p class="lead mb-0">${item.content}</p>
-                                    <a class="lead text-end" href="/api/v1/news/${item.newsId}">Read More ></a>
+                                    <div class="text ellipsis">
+                                        <p class="lead mb-0 text-concat">${item.content}</p>
+                                    </div>
+                                    <a class="lead text-end text-decoration-none" href="/api/v1/news/${item.newsId}">Read More <i class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>
                         </c:when>
@@ -90,8 +82,10 @@
                                 <div class="col-lg-6 my-auto showcase-text">
                                     <h2>${item.title}</h2>
                                     <h4>${item.subtitle}</h4>
-                                    <p class="lead mb-0">${item.content}</p>
-                                    <a class="lead text-end" href="/api/v1/news/${item.newsId}">Read More ></a>
+                                    <div class="text ellipsis">
+                                        <p class="lead mb-0 text-concat">${item.content}</p>
+                                    </div>
+                                    <a class="lead text-end text-decoration-none" href="/api/v1/news/${item.newsId}">Read More <i class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>
                         </c:otherwise>
@@ -109,77 +103,33 @@
             <div class="container">
                 <h2 class="mb-5">Most Popular Authors...</h2>
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" onclick="location.href='/api/v1/news/getByAuthorId/1'" style="cursor:pointer;">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />
-                            <h5>Margaret E.</h5>
-                            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+                            <h1><i class="bi bi-vector-pen"></i></h1>
+                            <h5>Kanav Javin</h5>
+                            <p class="font-weight-light mb-0">Breaking.com</p>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" onclick="location.href='/api/v1/news/getByAuthorId/4'" style="cursor:pointer;">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />
-                            <h5>Fred S.</h5>
-                            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+                            <h1><i class="bi bi-vector-pen"></i></h1>
+                            <h5>Delma Wilson</h5>
+                            <p class="font-weight-light mb-0">Coinpedia - Fintech & Cryptocurreny News Media</p>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" onclick="location.href='/api/v1/news/getByAuthorId/6'" style="cursor:pointer;">
                         <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
-                            <h5>Sarah W.</h5>
-                            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+                            <h1><i class="bi bi-vector-pen"></i></h1>
+                            <h5>Kevin Nicholson</h5>
+                            <p class="font-weight-light mb-0">AMBCrypto</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Call to Action-->
-        <section class="call-to-action text-white text-center" id="signup">
-            <div class="container position-relative">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6">
-                        <h2 class="mb-4">Ready to get started? Sign up now!</h2>
-                        <!-- Signup form-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
-                            <!-- Email address input-->
-                            <div class="row">
-                                <div class="col">
-                                    <input class="form-control form-control-lg" id="emailAddressBelow" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
-                                </div>
-                                <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    <p>To activate this form, sign up at</p>
-                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <!-- Footer-->
-        <footer class="footer bg-light">
+        <footer class="footer call-to-action">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
@@ -197,7 +147,7 @@
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                                <a href="https://github.com/VonHumbolt/BreakingNewsProject"><i class="bi bi-github fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
                                 <a href="#!"><i class="bi-twitter fs-3"></i></a>
@@ -210,6 +160,8 @@
                 </div>
             </div>
         </footer>
+
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

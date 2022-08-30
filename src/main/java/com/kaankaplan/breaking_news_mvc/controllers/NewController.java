@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -38,20 +37,22 @@ public class NewController {
     }
 
     @RequestMapping("/getBySourceId/{sourceId}")
-    public String getNewsBySourceId(@PathVariable int sourceId, Model model) {
+    public String getNewsBySourceId(@PathVariable int sourceId, @ModelAttribute("searchNewDto") SearchNewDto searchNewDto, Model model) {
 
         List<NewDto> allNews = newService.getNewsBySourceId(sourceId);
 
         model.addAttribute("allNews", allNews);
+        model.addAttribute("name", allNews.get(0).getSourceName());
 
         return "home";
     }
     @RequestMapping("/getByAuthorId/{authorId}")
-    public String getNewsByAuthorId(@PathVariable int authorId, Model model) {
+    public String getNewsByAuthorId(@PathVariable int authorId, @ModelAttribute("searchNewDto") SearchNewDto searchNewDto, Model model) {
 
         List<NewDto> allNews = newService.getNewsByAuthorId(authorId);
 
         model.addAttribute("allNews", allNews);
+        model.addAttribute("name", allNews.get(0).getAuthorName());
 
         return "home";
     }

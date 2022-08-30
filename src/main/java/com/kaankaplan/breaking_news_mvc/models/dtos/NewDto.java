@@ -21,5 +21,7 @@ public class NewDto {
     private String sourceName;
     private String authorName;
     private String imageUrl;
+    private int authorId;
+    private int sourceId;
 
 }
